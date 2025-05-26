@@ -1,0 +1,36 @@
+class Solution:
+    def __init__(self, val=0, next=None):
+        self.val = val      
+        self.next = next   
+
+    def addTwoNumbers(self,l1,l2):
+        current = l1
+        current2 = l2
+        result1 = []
+        result2 = []
+        while current:
+            result1.append(current.val)
+            current = current.next
+        while current2:
+            result2.append(current2.val)
+            current2 = current2.next
+        newnumber = ""
+        newnumber2 = ""
+        newnumber3 = ""
+        for j in result1[::-1]:
+            newnumber += str(j)
+        for k in result2[::-1]:
+            newnumber2 += str(k)
+        l1num = int(newnumber)
+        l2num = int(newnumber2)
+        result = (int(l1num+l2num))
+        for i in str(result)[::-1]:
+            newnumber3 += str(i)
+        dummy = ListNode(0) 
+        current3 = dummy
+
+        for c in newnumber3:
+            current3.next = ListNode(int(c))
+            current3 = current3.next
+
+        return dummy.next 
